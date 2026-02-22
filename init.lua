@@ -1,4 +1,4 @@
-vim.g.python3_host_prog = "C:/Users/vic/AppData/Local/Python/bin"
+vim.g.python3_host_prog = "C:/Path/To/Python/bin"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -14,11 +14,11 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("vic.init")
+require("name.init")
 
 require("lazy").setup({
 	spec = {
-		{ "LazyVim/Lazyvim", import = "vic.plugins.init" },
+		{ "LazyVim/Lazyvim", import = "name.plugins.init" },
 	},
 
 	change_detection = {
@@ -27,4 +27,4 @@ require("lazy").setup({
 	},
 })
 
-print("Welcome Victor")
+print("Welcome Name")

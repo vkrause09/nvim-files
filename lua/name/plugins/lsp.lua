@@ -1,4 +1,3 @@
--- Mason Setup
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local mason_null_ls = require("mason-null-ls")
@@ -14,8 +13,6 @@ mason_null_ls.setup({
 	automatic_installation = true,
 })
 
--- LSP Setup
---local lspconfig = require("lspconfigs")
 local lspconfig = vim.lsp.config
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -25,7 +22,6 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	local map = vim.keymap.set
 
-	-- Custom key mappings
 	map("n", "K", vim.lsp.buf.hover, opts)
 	map("n", "gd", vim.lsp.buf.definition, opts)
 	map("n", "gD", vim.lsp.buf.declaration, opts)
@@ -43,7 +39,6 @@ local on_attach = function(client, bufnr)
 	map("n", "[d", vim.diagnostic.goto_next, opts)
 	map("n", "]d", vim.diagnostic.goto_prev, opts)
 
-	-- Format on save
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = vim.api.nvim_create_augroup("LspFormat." .. bufnr, { clear = true }),
@@ -55,7 +50,6 @@ local on_attach = function(client, bufnr)
 	end
 end
 
--- Configure language servers
 local servers = {
 	jedi_language_server = {},
 	gopls = {},
@@ -111,13 +105,11 @@ for name, config in pairs(servers) do
 		config.capabilities = capabilities
 		config.on_attach = on_attach
 		config.flags = { debounce_text_changes = 150 }
-		-- lspconfig[name].setup(config)
 	else
 		vim.notify("LSP server not found: " .. name, vim.log.levels.WARN)
 	end
 end
 
--- Completion with nvim-cmp
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local lspkind = require("lspkind")
@@ -167,16 +159,12 @@ cmp.setup({
 	},
 })
 
--- null-ls (formatters/linters)
 local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.black,
-		-- null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.clang_format,
-		-- null_ls.builtins.formatting.gopls,
-		-- null_ls.builtins.diagnostics.eslint_d,
 	},
 })
 

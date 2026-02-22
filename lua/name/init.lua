@@ -1,6 +1,6 @@
-require("vic.remap")
-require("vic.my plugins.nvimrun")
-require("vic.diagnostic")
+require("name.remap")
+require("name.my plugins.nvimrun")
+require("name.diagnostic")
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

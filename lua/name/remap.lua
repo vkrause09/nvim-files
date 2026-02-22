@@ -5,7 +5,7 @@ vim.keymap.set("v", "jk", "<Esc>")
 vim.keymap.set("n", "<leader>yy", "yyo<Esc>pkdd")
 vim.keymap.set("n", "<leader>yk", "yyO<Esc>pkdd")
 vim.keymap.set("n", "<leader>r", function()
-    require("vic.nvimrun").run_current_file()
+    require("name.nvimrun").run_current_file()
 end, { desc = "run file in nvimrun" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

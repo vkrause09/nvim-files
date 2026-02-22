@@ -5,7 +5,7 @@ return {
 		tag = "0.1.8",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-			require("vic.plugins.telescope")
+			require("name.plugins.telescope")
 		end,
 	},
 
@@ -14,7 +14,7 @@ return {
 		"windwp/nvim-ts-autotag",
 		ft = { "html", "javascriptreact" },
 		config = function()
-			require("vic.pluings.autotag")
+			require("name.pluings.autotag")
 		end,
 	},
 
@@ -69,7 +69,7 @@ return {
 
 		"numToStr/Comment.nvim",
 		config = function()
-			require("vic.plugins.comment")
+			require("name.plugins.comment")
 		end,
 	},
 
@@ -86,7 +86,7 @@ return {
 		"EdenEast/nightfox.nvim",
 		priority = 1000,
 		config = function()
-			require("vic.plugins.colors")
+			require("name.plugins.colors")
 		end,
 	},
 
@@ -95,7 +95,7 @@ return {
 		"theprimeagen/harpoon",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-			require("vic.plugins.harpoon")
+			require("name.plugins.harpoon")
 		end,
 	},
 
@@ -105,7 +105,7 @@ return {
 		lazy = false,
 		build = ":TSUpdate",
 		config = function()
-			require("vic.plugins.treesitter")
+			require("name.plugins.treesitter")
 		end,
 	},
 
@@ -113,7 +113,7 @@ return {
 	{
 		"mbbill/undotree",
 		config = function()
-			require("vic.plugins.undotree")
+			require("name.plugins.undotree")
 		end,
 	},
 
@@ -121,7 +121,7 @@ return {
 	{
 		"tpope/vim-fugitive",
 		config = function()
-			require("vic.plugins.fugitive")
+			require("name.plugins.fugitive")
 		end,
 	},
 
@@ -142,21 +142,7 @@ return {
 			"jay-babu/mason-null-ls.nvim",
 		},
 		config = function()
-			require("vic.plugins.lsp")
+			require("name.plugins.lsp")
 		end,
 	},
-
-	-- Ollama AI Assistant
-	--[[ {
-		dir = vim.fn.stdpath("config") .. "/lua/vic/plugins/ollama-nvim.lua",
-		name = "ollama-nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("vic.plugins.ollama-nvim").setup({
-				model = "codellama:7b", -- or "deepseek-coder", "qwen2.5-coder", etc.
-				url = "http://localhost:11434",
-				timeout = 30000,
-			})
-		end,
-	}, ]]
 }
