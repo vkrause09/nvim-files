@@ -1,7 +1,7 @@
 # KEYMAPS
 ## Non comprehensive list of keymaps that DIFFER from native nvim
 ### NOTE: pressing space is what is known as leader for keymaps
-
+```
 MODE:       KEY:            Action:
 normal      <leader>pv      exit file to file viewer
 insert      jk              insert -> normal mode
@@ -50,3 +50,4 @@ normal      u               undo
 normal      <leader>u       show undo tree
 
 
+```
